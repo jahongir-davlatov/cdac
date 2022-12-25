@@ -41,6 +41,7 @@ services:
       docker node ls
       docker pull <images_name>
       docker stack deploy --with-registry-auth -c ./docker-compose.yaml stage 
+      docker service  create --name web -p 8080:80 --replicas=3 nginx:latest
       docker stack ls
       docker stack service stage
       docker node update --label-add TAG=stage stage
