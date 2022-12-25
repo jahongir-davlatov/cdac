@@ -1,0 +1,17 @@
+version: "3"
+services:
+  web10:
+    image: httpd
+    ports:
+      - "9001:80"
+    networks:
+      - br-01
+        
+         
+  web1:
+    image: nginx:latest
+    ports:
+      - "9002:80"
+    volumes:
+      - .:/usr/share/nginx/html/
+
