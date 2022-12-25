@@ -12,24 +12,35 @@
     sudo systemctl restart docker
     docker build -t myapp:v1 .
 
-
-    DOCKER COMPOSE FILE
+/////////////////////////////////////////////DOCKER-COMPOSE/////////////////////////////
     version: "3"
 services:
   web10:
-    image: httpd
+    image: httpd:latest
     ports:
-      - "9001:80"
-        #    networks:
-        #      - br-01
-        
-         
-  web1:
-    image: nginx:latest
-    ports:
-      - "9002:80"
+      - "9010:80"
     volumes:
-      - .:/usr/share/nginx/html/
+      - /home:/usr/local/apache2/htdocs
+
+  web2:
+    image: httpd:latest
+    ports:
+      - "9020:80"
+    volumes:
+      - /home:/usr/local/apache2/htdocs
+
+  web3:
+    image: httpd:latest
+    ports:
+      - "9030:80"
+    volumes:
+      - /home:/usr/local/apache2/htdocs
+
+      
+      docker-compose -f   docker-compose.yaml up -d
+      docker-compose -f   docker-compose.yaml down
+      docker-compose -f   docker-compose.yaml stop
+      docker-compose ps
 
 
       DOCKERFILE
