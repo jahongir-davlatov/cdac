@@ -4,8 +4,8 @@ services:
     image: httpd
     ports:
       - "9001:80"
-    networks:
-      - br-01
+        #    networks:
+        #      - br-01
         
          
   web1:
