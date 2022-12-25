@@ -1,2 +1,78 @@
-Hello World
-Mmdaaamda
+  sudo apt update
+    sudo apt install apt-transport-https curl gnupg-agent ca-certificates software-properties-common -y
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+    sudo apt install docker-ce docker-ce-cli containerd.io -y
+    sudo usermod -aG docker $USER
+    newgrp docker
+    docker version
+    sudo systemctl status docker
+    sudo systemctl start docker
+    sudo systemctl enable docker
+    sudo systemctl restart docker
+    docker build -t myapp:v1 .
+
+
+    DOCKER COMPOSE FILE
+    version: "3"
+services:
+  web10:
+    image: httpd
+    ports:
+      - "9001:80"
+        #    networks:
+        #      - br-01
+        
+         
+  web1:
+    image: nginx:latest
+    ports:
+      - "9002:80"
+    volumes:
+      - .:/usr/share/nginx/html/
+
+
+      DOCKERFILE
+
+
+
+      /////////////////////////////////DOCKER-SWARM///////////////////////////////////////
+      docker swarm init 
+      docker node ls
+      docker pull <images_name>
+      docker stack deploy --with-registry-auth -c ./docker-compose.yaml stage 
+      docker stack ls
+      docker stack service stage
+      docker node update --label-add TAG=stage stage
+      docker node update --label-add TAG=stage prod-1
+      docker node inspect stage
+      ADD in dokcer compose file
+    deploy:
+        placement:
+            constraints:
+                - "node.labels.TAG==stage"
+
+/////////////////////////////////UFW FIREWALL UBUNTU ///////////////////////////////
+    ufw allow 8080/tcp
+    ufw allow ssh
+
+////////////////////////////////**********GIT**********////////////////////////
+
+    sudo apt install git -y
+    sudo mkdir lab
+    cd lab/
+    sudo git clone https://github.com/amadou94/ditisslab.git
+    cd ditisslab/
+    sudo nano index.html
+    sudo git add -A
+    sudo git commit -m "First Commit"
+    sudo git push
+    sudo nano index.html 
+    sudo git add -A
+    sudo git commit -m "second Commit"
+    sudo git push  
+    mkdir cdac_test_folder && touch cdac_test_folder/.gitkeep   // For git folder in GitHub
+    git add cdac_test_folder/
+    git status 
+    git commit -m "Folder commit"
+    git push    
