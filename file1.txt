@@ -88,3 +88,19 @@ services:
     git status 
     git commit -m "Folder commit"
     git push    
+////////////////////////////////////////////JENKINS//////////////////////////////////
+NEW ITEM > FREestyle project > OK
+Jenkins > Configurations > Git HUb project "URL" > Source Code Management > Repo URL "URL GIT" > Branches to build "*/main" > Build Triger > Build triggers > Build Periodicaly  "*****" > SAVE
+
+LAMBDA
+SNS Server > Create topics > select standart > NAME > Create topic> Create subscripton >select protocol "Email" > create subscripton
+S3
+Create bucket > Default Settings
+
+Create lambda > Create function > fun name >Runtime "Python" > Executive role > use a execting > Need create IAM role > roles > create role 
+IAM
+AWSLambdaBasicExecution Role > next > name > create role
+
+Lambda > add Desination > condition > onsuces > Destination > SNS Server choose > save
+
+Triger Add > Search S3 > select bucket name > suffix .docx > finish 
